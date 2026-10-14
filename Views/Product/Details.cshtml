@@ -1,0 +1,30 @@
+﻿
+@model Practical__6.Models.Product
+
+@{
+    ViewBag.Title = "Product Details";
+}
+
+<h2>Product Details</h2>
+
+@if (Model != null)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h3>@Model.ProductName</h3>
+            <p><b>Product ID:</b> @Model.ProductId</p>
+            <p><b>Description:</b> @Model.Description</p>
+            <p><b>Price:</b> ₹@Model.Price.ToString("N0")</p>
+            <p><b>Category:</b> @Model.Category</p>
+
+            @Html.ActionLink("Back to Catalog", "Index", "Product",
+                null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+}
+else
+{
+    <p>Product not found.</p>
+
+    @Html.ActionLink("Back to Catalog", "Index", "Product")
+}

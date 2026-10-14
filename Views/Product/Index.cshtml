@@ -1,0 +1,28 @@
+﻿
+
+@model IEnumerable<Practical__6.Models.Product>
+@{
+    ViewBag.Title = "Product Catalog";
+}
+
+<h1>Product Catalog</h1>
+
+<p>Welcome to our product store!</p>
+<p>Total Products: @Model.Count()</p>
+
+<hr />
+
+@foreach (var p in Model)
+{
+    <h2>@p.ProductName</h2>
+
+    <p>Product ID: @p.ProductId</p>
+    <p>Description: @p.Description</p>
+    <p>Price: ₹@p.Price</p>
+    <p>Category: @p.Category</p>
+
+    @Html.ActionLink("View Details", "Details",
+        new { id = p.ProductId })
+
+    <hr />
+}
